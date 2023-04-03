@@ -1,5 +1,8 @@
 import { GoMarkGithub } from 'react-icons/go'
 import { CiCoffeeCup, CiBatteryFull, CiWheat } from 'react-icons/ci'
+import { IoFlashlightOutline, IoFlashlight } from 'react-icons/io5'
+import useDarkMode from '../hooks/useDarkMode';
+import { useState } from 'react';
 
 const Sidebar = () => {
     return ( 
@@ -11,9 +14,28 @@ const Sidebar = () => {
         <SideBarIcon icon={<CiBatteryFull size="28" />} />
         <SideBarIcon icon={<CiWheat size="28" />} />
         <SideBarIcon icon={<GoMarkGithub size="28" />} />
+        {/* <SideBarIcon icon={<IoFlashlightOutline size="28" />} /> */}
     </div>
     );
 }
+const SwitchTheme = () => {
+    const [darkTheme, setDarkTheme] = useDarkMode()
+    const handleMode = () => setDarkTheme(!darkTheme)
+
+    return ( 
+        <span onClick={handleMode}>
+            {darkTheme ? (
+                <IoFlashlightOutline size='24' className="dark-mode-icon" /> 
+            ) : (
+                <IoFlashlight size='24' className="dark-mode-icon" />
+            )}
+        </span>
+    );
+}
+
+
+
+
 const SideBarIcon = ({ icon, text = 'tooltip 🚨' }) => {
     return (
     <div className='sidebar-icon group'>

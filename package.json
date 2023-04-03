@@ -1,5 +1,9 @@
 {
   "dependencies": {
     "react-icons": "^4.8.0"
+  },
+  "devDependencies": {
+    "eslint-import-resolver-typescript": "^3.5.4",
+    "eslint-plugin-import": "^2.27.5"
   }
 }
